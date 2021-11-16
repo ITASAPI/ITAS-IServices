@@ -484,16 +484,13 @@ Create QR Codes in Base64 or RTF
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (QRCodeResponse)
+    + Attributes (QRCode)
 
 + Response 200 (application/json)
-    + Attributes (ServiceController)
+    + Attributes (QRCodeResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 ServiceResponse)
-
-+ Response 404 (application/json)
-    + Attributes (404 ServiceResponse)
+    + Attributes (400 Response)
 
 ## QR Code Create RTF [/QRCode/RTF]
 `POST` Generate RTF QR Code
@@ -503,24 +500,20 @@ Create QR Codes in Base64 or RTF
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |Data|Data for QR Code|`string`|||Required|
-|Multiplier|RTF Size Multiplier|`numbver`||||
+|Multiplier|RTF Size Multiplier|`number`||||
 
 + Request (application/json)
     + Header
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (QRCodeRtfResponse)
+    + Attributes (QRCode)
 
 + Response 200 (application/json)
-    + Attributes (ServiceController)
+    + Attributes (QRCodeRtfResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 ServiceResponse)
-
-+ Response 404 (application/json)
-    + Attributes (404 ServiceResponse)
-
+    + Attributes (400 Response)
 
 
 
@@ -618,15 +611,6 @@ Create QR Codes in Base64 or RTF
 ## 404 NotFound (object)
 + Severity: Error (string)
 + Message: `API5067 - API : The value {inputValue} does not exist.` (string)
-
-## 404 Response (object)
-+ Response
-    + Value: 404 Object not found (string)
-+ Messages (array[404 ErrorMessageDetailMessage])
-
-## 404 ErrorMessageDetailMessage (object)
-+ Severity: Warning (string)
-+ Message: `API5067 - API : The value {TradingEntityId} sent as the TradingEntitiyId does not exist.` (string)
 
 ## 404 RequestIdResponse (object)
 + Response
@@ -747,6 +731,9 @@ Create QR Codes in Base64 or RTF
 + Top: 200 (number) - max number returned per message
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
+
+## QRCode (object)
++ Data: `Information needed for code`
 
 ## QRCodeResponse (object)
 + Data: `iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADN....}` (string)
