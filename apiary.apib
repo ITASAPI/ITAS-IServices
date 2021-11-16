@@ -204,38 +204,7 @@ Model Header containing AccessToken
     + Attributes (404 RequestIdResponse)
 
 
-
-# Group ITAS Users
-Endpoints pertaining to Itas users for internal users only
-
-## IsUserAdmin [/User/IsUserAdmin/{UserGuid}]
-'GET'  to see if the user is a member of the `ITASAdministrators` AD group. Note IsUAerADmiin that the name of this group can change.
-
-### IsUserAdmin [GET]
-
-
-+ Request (application/json)
-    + Header
-
-            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-
-+ Parameters
-    + UserGuid (required, string, `8bc09444-b44c-417c-a80b-c129bf6dfd3f`) ... ITAS NG User GUID
-
-+ Response 200 (application/json)
-    + Attributes (UserAdminBool)
-
-+ Response 400 (application/json)
-    + Attributes (400 ServiceResponse)
-
-+ Response 404 (application/json)
-    + Attributes (404 ServiceResponse)
-
-# Group ITAS Services Control
-Endpoints to get and set the status of ITAS windows services. For full documentation please see:<!-- <a href="https://hivedome.sharepoint.com/ITAS-NG/_layouts/15/WopiFrame.aspx?sourcedoc=%7B3798EB98-26AA-4179-8830-3BFDB8356168%7D&file=Diagnostics%20Module%20and%20Service%20Monitoring%20API.docx&action=default"> Link</a>-->
-
-# Group Service Controller Global
+# Group ITAS Service Controller Global
 The Global service controller maintains a list of registered (window services) and has a central view of the statuses of all services.
 
 ## Check Status [/Service/CheckStatus/{ServiceName}]
@@ -330,7 +299,7 @@ The Global service controller maintains a list of registered (window services) a
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 ServiceResponse)
 
-# Group Service Controller Local
+# Group ITAS Service Controller Local
 Receive status information directly without going via the agency of the Global Service Controller.
 
 ## Check Status [/Service/CheckStatus]
@@ -364,9 +333,34 @@ Receive status information directly without going via the agency of the Global S
 + Response 404 (application/json)
     + Attributes (404 ServiceResponse)
 
-# Group ITAS Import Factory
-### 
-To be used by Web pages for internal projects. TBC
+
+# Group ITAS Users
+Endpoints pertaining to Itas users for internal users only
+
+## IsUserAdmin [/User/IsUserAdmin/{UserGuid}]
+'GET'  to see if the user is a member of the `ITASAdministrators` AD group. Note IsUAerADmiin that the name of this group can change.
+
+### IsUserAdmin [GET]
+
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+
++ Parameters
+    + UserGuid (required, string, `8bc09444-b44c-417c-a80b-c129bf6dfd3f`) ... ITAS NG User GUID
+
++ Response 200 (application/json)
+    + Attributes (UserAdminBool)
+
++ Response 400 (application/json)
+    + Attributes (400 ServiceResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 ServiceResponse)
+
 
 # Group Key Value Pair Store
 
@@ -473,13 +467,6 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
 + response 200 (application/json)
     + Attributes (KvpKey)
         + response: deleted (string)
-
-
-# Group Codes
-Web services to support creating, reading and updating ITAS Codes
-
-+ Response 200 (application/json)
-
 
 
 # Data Structures
