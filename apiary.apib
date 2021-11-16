@@ -29,7 +29,6 @@ Model Header containing AccessToken
 |DocRef|Document Reference|`string`||||
 |InvoiceType|Invoice Type|`string`||||
 |UserName|User Name|`string`||||
-|Test User|User Name|`string`||||
 
 
 <b>Response Data</b>
@@ -468,6 +467,63 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
         + response: deleted (string)
 
 
+# Group QR Code
+Create QR Codes in Base64 or RTF
+
+## QR Code Create [/QRCode/Generate]
+`POST` Generate Base64 QR Code
+### Create QR Code [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Data|Data for QR Code|`string`|||Required|
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (QRCodeResponse)
+
++ Response 200 (application/json)
+    + Attributes (ServiceController)
+
++ Response 400 (application/json)
+    + Attributes (400 ServiceResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 ServiceResponse)
+
+## QR Code Create RTF [/QRCode/RTF]
+`POST` Generate RTF QR Code
+### Create RTF QR Code [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Data|Data for QR Code|`string`|||Required|
+|Multiplier|RTF Size Multiplier|`numbver`||||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (QRCodeRtfResponse)
+
++ Response 200 (application/json)
+    + Attributes (ServiceController)
+
++ Response 400 (application/json)
+    + Attributes (400 ServiceResponse)
+
++ Response 404 (application/json)
+    + Attributes (404 ServiceResponse)
+
+
+
+
 # Data Structures
 
 ## 200 SuccessResponse (object)
@@ -692,6 +748,11 @@ The Key Value Pair Store (kvpstore) allows users to store and retrieve arbitrary
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
 
+## QRCodeResponse (object)
++ Data: `iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADN....}` (string)
+
+## QRCodeRtfResponse (object)
++ Data: `{\\pict\\pngblip\\picw500\\pich500\\picwgoal2000\\pichgoal2000\\bin 89504E470D0A1A0A0000000D49484452000001F4000001F40806000000CBD6....}` (string)
 
 ## ResultsMessage (object)
 + RequestId: `a123a456-7891-23a4-a567-8a9a10aaa123` (string)
