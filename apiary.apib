@@ -606,13 +606,16 @@ Create QR Codes in Base64 or RTF
 + Message: `API50xx - Data : Now create xyz.` (string)
 
 ## 400 QrErrorResponse (object)
-+ errors (array[400 QrDataError])
++ errors (400 QrDataError)
 + title: One or more validation errors occurred. (string)
 + status: 400 (number)
 + traceId: 0HMDA5RFEELMB:00000001 (string)
 
 ## 400 QrDataError (object)
-+ Data: The Data field is required. (string)
++ Data(array[QrDataRequired])
+
+## QrDataRequired (string)
++ The Data field is required.
 
 ## 404 NotFoundResponse (object)
 + Value: Not Found
