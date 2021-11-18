@@ -490,7 +490,7 @@ Create QR Codes in Base64 or RTF
     + Attributes (QRCodeResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 Response)
+    + Attributes (400 QrErrorResponse)
 
 ## QR Code RTF [/QRCode/RTF]
 `POST` Generate RTF QR Code
@@ -507,13 +507,13 @@ Create QR Codes in Base64 or RTF
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (QRCode)
+    + Attributes (QrRtfCode)
 
 + Response 200 (application/json)
     + Attributes (QRCodeRtfResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 Response)
+    + Attributes (400 QrErrorResponse)
 
 
 
@@ -742,7 +742,11 @@ Create QR Codes in Base64 or RTF
 + Returned: 146 (number) - actual number returned
 
 ## QRCode (object)
-+ Data: `Information needed for code`
++ Data: `Information needed for code` (string)
+
+## QrRtfCode (object)
++ Data: `Information needed for code` (string)
++ RtfSizeMultiplier: 6 (number)
 
 ## QRCodeResponse (object)
 + Data: `iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADN....}` (string)
