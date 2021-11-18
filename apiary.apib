@@ -500,7 +500,7 @@ Create QR Codes in Base64 or RTF
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |Data|Data for QR Code|`string`|||Required|
-|Multiplier|RTF Size Multiplier|`number`||||
+|RtfSizeMultiplier|RTF Size Multiplier|`number`||||
 
 + Request (application/json)
     + Header
@@ -604,6 +604,15 @@ Create QR Codes in Base64 or RTF
 ## 400 InfoMessageDetail (object)
 + Severity: Information (string)
 + Message: `API50xx - Data : Now create xyz.` (string)
+
+## 400 QrErrorResponse (object)
++ errors: errors (array[400 QrDataError])
++ title: One or more validation errors occurred. (string)
++ status: 400 (number)
++ traceId: 0HMDA5RFEELMB:00000001 (string)
+
+## 400 QrDataError (object)
++ Data: The Data field is required. (string)
 
 ## 404 NotFoundResponse (object)
 + Value: Not Found
