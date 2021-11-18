@@ -490,7 +490,12 @@ Create QR Codes in Base64 or RTF
     + Attributes (QRCodeResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 QrErrorResponse)
+    + Body
+
+            {
+                "groupName": "groupC",
+                "groupDescription": "description for new group"
+            }
 
 ## QR Code RTF [/QRCode/RTF]
 `POST` Generate RTF QR Code
@@ -612,10 +617,10 @@ Create QR Codes in Base64 or RTF
 + traceId: 0HMDA5RFEELMB:00000001 (string)
 
 ## 400 QrDataError (object)
-+ Data(array[QrDataRequired])
++ Data (array[QrDataRequired])
 
-## QrDataRequired (string)
-+ The Data field is required.
+## QrDataRequired (object)
++ .: The Data field is required. (string)
 
 ## 404 NotFoundResponse (object)
 + Value: Not Found
