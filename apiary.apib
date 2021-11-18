@@ -493,8 +493,14 @@ Create QR Codes in Base64 or RTF
     + Body
 
             {
-                "groupName": "groupC",
-                "groupDescription": "description for new group"
+                "errors": {
+                    "Data": [
+                        "The Data field is required."
+                    ]
+                },
+                "title": "One or more validation errors occurred.",
+                "status": 400,
+                "traceId": "0HMDA5RFEELMC:00000001"
             }
 
 ## QR Code RTF [/QRCode/RTF]
@@ -518,8 +524,18 @@ Create QR Codes in Base64 or RTF
     + Attributes (QRCodeRtfResponse)
 
 + Response 400 (application/json)
-    + Attributes (400 QrErrorResponse)
+    + Body
 
+            {
+                "errors": {
+                    "Data": [
+                        "The Data field is required."
+                    ]
+                },
+                "title": "One or more validation errors occurred.",
+                "status": 400,
+                "traceId": "0HMDA5RFEELMC:00000001"
+            }
 
 
 # Data Structures
@@ -609,18 +625,6 @@ Create QR Codes in Base64 or RTF
 ## 400 InfoMessageDetail (object)
 + Severity: Information (string)
 + Message: `API50xx - Data : Now create xyz.` (string)
-
-## 400 QrErrorResponse (object)
-+ errors (400 QrDataError)
-+ title: One or more validation errors occurred. (string)
-+ status: 400 (number)
-+ traceId: 0HMDA5RFEELMB:00000001 (string)
-
-## 400 QrDataError (object)
-+ Data (array[QrDataRequired])
-
-## QrDataRequired (object)
-+ .: The Data field is required. (string)
 
 ## 404 NotFoundResponse (object)
 + Value: Not Found
